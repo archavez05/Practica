@@ -5,8 +5,10 @@ go 1.21.0
 require (
 	github.com/globusdigital/soap v1.4.0 // indirect
 	github.com/go-sql-driver/mysql v1.7.1 // indirect
+	github.com/golang-jwt/jwt/v5 v5.0.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
+	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/klauspost/compress v1.13.6 // indirect
 	github.com/montanaflynn/stats v0.0.0-20171201202039-1bf9dbcd8cbe // indirect

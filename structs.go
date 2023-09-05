@@ -1,15 +1,17 @@
 package main
 
+import "github.com/golang-jwt/jwt/v5"
+
 type Song struct {
-	id       int     `json:"id"`
-	originId string  `json:originId`
-	name     string  `json:"name"`
-	artist   string  `json:"artist"`
-	duration string  `json:"duration"`
-	album    string  `json:"album"`
-	artwork  string  `json:"artwork"`
-	price    float64 `json:"price"`
-	origin   string  `json:"origin"`
+	Id       int     `json:"id"`
+	OriginId string  `json:"originId"`
+	Name     string  `json:"name"`
+	Artist   string  `json:"artist"`
+	Duration string  `json:"duration"`
+	Album    string  `json:"album"`
+	Artwork  string  `json:"artwork"`
+	Price    float64 `json:"price"`
+	Origin   string  `json:"origin"`
 }
 
 type SongRestResponse struct {
@@ -47,8 +49,8 @@ type SongRestResponse struct {
 }
 
 type RestResponse struct {
-	resultCount int                `json:"resultCount"`
-	results     []SongRestResponse `json:"results"`
+	ResultCount int                `json:"resultCount"`
+	Results     []SongRestResponse `json:"results"`
 }
 
 type SongSOAPResponse struct {
@@ -64,4 +66,31 @@ type SongSOAPResponse struct {
 
 type SOAPResponse struct {
 	SearchLyricResult []SongSOAPResponse `xml:SearchLyricResult`
+}
+
+type LoginRequest struct {
+	User string
+	Pass string
+}
+
+type User struct {
+	Id    int
+	User  string
+	Pass  string
+	Email string
+}
+
+type Claims struct {
+	Username string `json:"username"`
+	jwt.RegisteredClaims
+}
+
+type LoginResponse struct {
+	Message string `json:"message"`
+	Token   string `json:"token"`
+}
+
+type GeneralResponse struct {
+	Message string `json:"message"`
+	Songs   []Song `json:"songs"`
 }
